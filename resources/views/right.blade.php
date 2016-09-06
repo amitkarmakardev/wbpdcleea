@@ -2,25 +2,6 @@
 
 <div class="sidebar">
 
-    <div class="sidebar-item">
-        <h4>Recent Discussions</h4>
-        <hr>
-        @foreach($sidebarInjector->getRecentDiscussions() as $discussion)
-            <a href="{{ url('discussion', [$discussion->id]) }}"
-               style="margin-bottom: 5px; color: #666">{{ $discussion->subject }}</a><br>
-        @endforeach
-    </div>
-
-    <div class="sidebar-item">
-        <h4>Most Popular</h4>
-        <hr>
-        @foreach($sidebarInjector->getPopularDiscussions() as $discussion)
-            <a href="{{ url('discussion', [$discussion->id]) }}"
-               style="margin-bottom: 5px; color: #666">{{ $discussion->subject }}</a><br>
-        @endforeach
-
-    </div>
-
     <div class="sidebar-item poll-box">
         <h4>Poll</h4>
         <hr>
@@ -51,8 +32,26 @@
                 </div>
             @endif
             <hr>
-
         @endforeach
+    </div>
+
+    <div class="sidebar-item">
+        <h4>Recent Discussions</h4>
+        <hr>
+        @foreach($sidebarInjector->getRecentDiscussions() as $discussion)
+            <a href="{{ url('discussion', [$discussion->id]) }}"
+               style="display:block; padding: 3px; color: #666">{{ $discussion->subject }}</a>
+        @endforeach
+    </div>
+
+    <div class="sidebar-item">
+        <h4>Most Popular</h4>
+        <hr>
+        @foreach($sidebarInjector->getPopularDiscussions() as $discussion)
+            <a href="{{ url('discussion', [$discussion->id]) }}"
+               style="display:block; padding: 3px; color: #666">{{ $discussion->subject }}</a>
+        @endforeach
+
     </div>
 
 </div>

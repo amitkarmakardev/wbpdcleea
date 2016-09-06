@@ -13,7 +13,7 @@
                 {{ $data->description }}
             </div>
             <hr>
-            <h6 style="text-align: right; color: #555">Published by: Amit Karmakar</h6>
+            <h6 style="text-align: right; color: #555">Published by: {{ $data->published_by }}</h6>
 
 
         </div>

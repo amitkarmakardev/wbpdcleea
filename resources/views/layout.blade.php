@@ -12,6 +12,11 @@
 <!-- Menu Section -->
 @include('menu')
 
+<div class="jumbotron" style="margin: 0">
+    <div class="container">
+        <h2>WBPDCL Energy Engineers' Association (Welfare)</h2>
+    </div>
+</div>
 <!-- Navigation -->
 @yield('navigation')
 

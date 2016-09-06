@@ -1,6 +1,6 @@
 @foreach($data->comments as $comment)
     <div class="comment-box">
-        <h5 style="margin-bottom: 20px; font-weight: 600">{{ $comment->published_by }} Amit Karmakar - <span
+        <h5 style="margin-bottom: 20px; font-weight: 600">{{ $comment->published_by }} - <span
                     style="color: #999">{{ $comment->created_at->diffForHumans() }}</span></h5>
         <div class="comment">
             {{ $comment->content }}

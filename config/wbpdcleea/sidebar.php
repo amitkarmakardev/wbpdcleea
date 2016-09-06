@@ -2,6 +2,6 @@
 
 return [
 
-    'per_page' => 6,
+    'per_page' => 10,
 
 ];

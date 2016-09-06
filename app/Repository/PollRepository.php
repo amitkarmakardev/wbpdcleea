@@ -43,7 +43,7 @@ class PollRepository{
     public function vote($id, $option)
     {
 //        TODO: set appropriate cast_by
-        Vote::create(['poll_id' => $id, 'cast_by' => '5361', 'option' => $option]);
+        Vote::create(['poll_id' => $id, 'cast_by' => 'admin', 'option' => $option]);
     }
 
 }
