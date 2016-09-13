@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDiscussionsTable extends Migration
+class CreatePollOptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateDiscussionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('discussions', function (Blueprint $table) {
+        Schema::create('poll_options', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('subject');
-            $table->text('description');
-            $table->string('published_by');
-            $table->unsignedInteger('hit')->default(0);
+            $table->unsignedInteger('poll_id')->nullable();
+            $table->text('option')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateDiscussionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('discussions');
+        Schema::drop('poll_options');
     }
 }

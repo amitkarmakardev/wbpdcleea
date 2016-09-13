@@ -17,7 +17,7 @@ class CreateVotesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('poll_id');
             $table->string('cast_by');
-            $table->string('option');
+            $table->unsignedInteger('poll_option_id')->nullable();
             $table->timestamps();
         });
     }

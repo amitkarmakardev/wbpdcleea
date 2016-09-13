@@ -19,7 +19,7 @@ class CreateIssuesTable extends Migration
             $table->text('description');
             $table->string('created_by');
             $table->enum('status', ['pending', 'resolved']);
-            $table->integer('hit')->default(0);
+            $table->unsignedInteger('hit')->default(0);
             $table->timestamps();
         });
     }

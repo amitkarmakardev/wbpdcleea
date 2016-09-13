@@ -16,14 +16,7 @@
               <h2 class="heading">Our Mission</h2>
               <div class="main-content">
                   <hr>
-                  <p style="line-height: 1.8em">
-                      Our mission is:
-                  </p>
-                  <p>Zeene ke hai char din.... ho o o o o o</p>
-                  <p>Baki hain bekar din .... ho o o o o o </p>
-                  <p>Jaye jaye........</p>
-                  <p>Jaye jaye........</p>
-                  <p>Ekbar jo jaye......jawani fir na aaye</p>
+                  <p>Page under construction</p>
                   <hr>
           </div>
         </div>

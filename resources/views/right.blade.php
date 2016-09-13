@@ -6,31 +6,24 @@
         <h4>Poll</h4>
         <hr>
         @foreach($sidebarInjector->getActivePolls() as $poll)
+
             <span style="font-weight: 600; margin-bottom: 15px; display: block">Q. {{ $poll->agenda}}</span>
-            <a href="{{ url('poll', ['vote', $poll->id, 'option1']) }}">A. {{ $poll->option1 }} <span
-                        class="pull-right">{{ $poll->getVotePercentage('option1') }}%</span></a>
-            <div class="poll-result">
-                <div class="poll-result-bar" style="width:{{ $poll->getVotePercentage('option1') }}%"></div>
-            </div>
-            <a href="{{ url('poll', ['vote', $poll->id, 'option2']) }}">B. {{ $poll->option2 }} <span
-                        class="pull-right">{{ $poll->getVotePercentage('option2') }}%</span></a>
-            <div class="poll-result">
-                <div class="poll-result-bar" style="width: {{ $poll->getVotePercentage('option2') }}%"></div>
-            </div>
-            @if($poll->option3 != '')
-                <a href="{{ url('poll', ['vote', $poll->id, 'option3']) }}">C. {{ $poll->option3 }} <span
-                            class="pull-right">{{ $poll->getVotePercentage('option3') }}%</span></a>
-                <div class="poll-result">
-                    <div class="poll-result-bar" style="width: {{ $poll->getVotePercentage('option3') }}%"></div>
+            @foreach($poll->pollOptions as $pollOption)
+                <div class="row">
+                    <div class="col-md-10">
+                        <a href="{{ url('poll', ['vote', $poll->id, $pollOption->id]) }}"> {{ $pollOption->option }}
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="pull-right">{{ $pollOption->votePercentage() }}%</span>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="poll-result">
+                            <div class="poll-result-bar" style="width:{{ $pollOption->votePercentage() }}%"></div>
+                        </div>
+                    </div>
                 </div>
-            @endif
-            @if($poll->option4 != '')
-                <a href="{{ url('poll', ['vote', $poll->id, 'option4']) }}">D. {{ $poll->option4 }} <span
-                            class="pull-right">{{ $poll->getVotePercentage('option4') }}%</span></a>
-                <div class="poll-result">
-                    <div class="poll-result-bar" style="width: {{ $poll->getVotePercentage('option4') }}%"></div>
-                </div>
-            @endif
+            @endforeach
             <hr>
         @endforeach
     </div>

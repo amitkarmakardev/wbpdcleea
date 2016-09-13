@@ -38,7 +38,7 @@ Route::group(['prefix' => 'poll'], function () {
     Route::get('create', 'PollController@create');
     Route::get('{id?}/activate', 'PollController@activate');
     Route::get('{id?}/deactivate', 'PollController@deactivate');
-    Route::get('vote/{id?}/{option?}', 'PollController@vote');
+    Route::get('vote/{id?}/{poll_option_id?}', 'PollController@vote');
     Route::get('{id?}', 'PollController@show');
     Route::post('/', 'PollController@store');
 });

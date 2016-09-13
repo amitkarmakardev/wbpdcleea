@@ -43,9 +43,9 @@ class PollController extends Controller
         return redirect()->back();
     }
 
-    public function vote($id, $option, PollRepository $pollRepository)
+    public function vote($id, $poll_option_id, PollRepository $pollRepository)
     {
-        $pollRepository->vote($id, $option);
+        $pollRepository->vote($id, $poll_option_id);
         return redirect()->back();
     }
 }

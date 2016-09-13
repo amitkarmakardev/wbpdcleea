@@ -18,7 +18,7 @@ class CreateAnnouncementsTable extends Migration
             $table->text('subject');
             $table->text('description');
             $table->string('published_by');
-            $table->integer('hit')->default(0);
+            $table->unsignedInteger('hit')->default(0);
             $table->timestamps();
         });
     }

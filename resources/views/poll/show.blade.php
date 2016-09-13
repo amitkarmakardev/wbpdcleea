@@ -12,14 +12,9 @@
         <div class="main-content">
             <hr>
             <ul style="list-style-type: none">
-                <li style="margin-bottom: 30px"><h4>{{ $data->option1 }}</h4></li>
-                <li style="margin-bottom: 30px"><h4>{{ $data->option2 }}</h4></li>
-                @if($data->option3 != '')
-                    <li style="margin-bottom: 30px"><h4>{{ $data->option3 }}</h4></li>
-                @endif
-                @if($data->option4 != '')
-                    <li style="margin-bottom: 30px"><h4>{{ $data->option4 }}</h4></li>
-                @endif
+                @foreach($data->pollOptions as $poll_option)
+                    <li style="margin-bottom: 30px"><h4>{{ $poll_option->option }}</h4></li>
+                @endforeach
             </ul>
 
             <hr>

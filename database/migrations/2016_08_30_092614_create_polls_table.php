@@ -16,10 +16,6 @@ class CreatePollsTable extends Migration
         Schema::create('polls', function (Blueprint $table) {
             $table->increments('id');
             $table->text('agenda');
-            $table->string('option1');
-            $table->string('option2');
-            $table->string('option3');
-            $table->string('option4');
             $table->string('published_by');
             $table->string('status')->default('inactive');
             $table->timestamps();

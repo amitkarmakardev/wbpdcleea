@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Poll;
+use App\PollOption;
 use App\Vote;
 
 class PollRepository{
@@ -14,7 +15,12 @@ class PollRepository{
 
     public function save($request)
     {
-        Poll::create($request->all());
+        $poll_options = [];
+        $data = Poll::create($request->all());
+        foreach($request->get('option') as $option){
+            $poll_options[] = new PollOption(['option' => $option]);
+        }
+        $data->pollOptions()->saveMany($poll_options);
     }
 
     public function get($id)
@@ -40,10 +46,10 @@ class PollRepository{
         $poll->save();
     }
 
-    public function vote($id, $option)
+    public function vote($id, $poll_option_id)
     {
 //        TODO: set appropriate cast_by
-        Vote::create(['poll_id' => $id, 'cast_by' => 'admin', 'option' => $option]);
+        Vote::create(['poll_id' => $id, 'cast_by' => '', 'poll_option_id' => $poll_option_id]);
     }
 
 }

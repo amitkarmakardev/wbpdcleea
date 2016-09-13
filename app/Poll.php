@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Poll extends Model
 {
-    protected $fillable = ['agenda', 'option1', 'option2', 'option3', 'option4', 'published_by'];
+    protected $fillable = ['agenda', 'published_by'];
 
     public function setPublishedByAttribute($value)
     {
@@ -15,9 +15,14 @@ class Poll extends Model
         $this->attributes['published_by'] = 'admin';
     }
 
+    public function pollOptions()
+    {
+        return $this->hasMany(PollOption::class);
+    }
+    
     public function votes()
     {
-        return $this->hasMany('App\Vote');
+        return $this->hasMany(Vote::class);
     }
 
     public function getVotePercentage($option)
