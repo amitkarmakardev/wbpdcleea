@@ -1,6 +1,6 @@
 @inject('sidebarInjector', 'App\Repository\SidebarInjector')
 
-<div class="sidebar">
+<div class="sidebar" style="padding: 0">
 
     <div class="sidebar-item poll-box">
         <h4>Poll</h4>
@@ -11,7 +11,7 @@
             @foreach($poll->pollOptions as $pollOption)
                 <div class="row">
                     <div class="col-md-10">
-                        <a href="{{ url('poll', ['vote', $poll->id, $pollOption->id]) }}"> {{ $pollOption->option }}
+                        <a href="{{ url('poll', ['vote', $poll->id, $pollOption->id]) }}" style="display: block;"> {{ $pollOption->option }}
                         </a>
                     </div>
                     <div class="col-md-2">
