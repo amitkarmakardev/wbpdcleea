@@ -16,6 +16,7 @@
                 @yield('left')
             </div>
             <div class="col-md-3">
+                Create Announement
                 @include('right')
             </div>
         </div>

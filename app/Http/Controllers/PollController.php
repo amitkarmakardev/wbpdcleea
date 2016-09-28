@@ -7,10 +7,17 @@ use Illuminate\Http\Request;
 
 class PollController extends Controller
 {
-
-    public function index(PollRepository $pollRepository)
+    protected $repository;
+    
+    public function __construct(PollRepository $repository)
     {
-        $data_list = $pollRepository->all();
+        $this->middleware('auth');
+        $this->repository = $repository;
+    }
+
+    public function index()
+    {
+        $data_list = $this->repository->all();
         return view('poll.index', compact('data_list'));
     }
 
@@ -19,33 +26,33 @@ class PollController extends Controller
         return view('poll.create');
     }
 
-    public function show($id, PollRepository $pollRepository)
+    public function show($id)
     {
-        $data = $pollRepository->get($id);
+        $data = $this->repository->get($id);
         return view('poll.show', compact('data'));
     }
 
-    public function store(Request $request, PollRepository $pollRepository)
+    public function store(Request $request)
     {
-        $pollRepository->save($request);
+        $this->repository->save($request);
         return redirect()->to(url('poll'));
     }
 
-    public function activate($id, PollRepository $pollRepository)
+    public function activate($id)
     {
-        $pollRepository->activate($id);
+        $this->repository->activate($id);
         return redirect()->back();
     }
 
-    public function deActivate($id, PollRepository $pollRepository)
+    public function deActivate($id)
     {
-        $pollRepository->deActivate($id);
+        $this->repository->deActivate($id);
         return redirect()->back();
     }
 
-    public function vote($id, $poll_option_id, PollRepository $pollRepository)
+    public function vote($id, $poll_option_id)
     {
-        $pollRepository->vote($id, $poll_option_id);
+        $this->repository->vote($id, $poll_option_id);
         return redirect()->back();
     }
 }

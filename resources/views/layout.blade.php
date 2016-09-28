@@ -8,9 +8,6 @@
 </div>
 
 <body>
-
-@include('auth.login')
-
         <!-- Header -->
 @include('header')
 

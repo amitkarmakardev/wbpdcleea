@@ -10,9 +10,7 @@ class Announcement extends Model
 
     public function setPublishedByAttribute($value)
     {
-//        TODO: Change published_by
-//        $this->attributes['published_by'] = auth()->user()->member_id;
-        $this->attributes['published_by'] = 'admin';
+        $this->attributes['published_by'] = auth()->user()->member_id;
     }
 
     public function comments()

@@ -8,21 +8,25 @@
     </div>
 @endforeach
 
-<div class="comment-box">
+@if(auth()->check())
+    <div class="comment-box">
 
-    {!! Form::open(['method' => 'post', 'url' => url('comment')]) !!}
+        {!! Form::open(['method' => 'post', 'url' => url('comment')]) !!}
 
-    {!! Form::hidden('commentable_type', $module) !!}
-    {!! Form::hidden('published_by', null) !!}
-    {!! Form::hidden('commentable_id', $data->id) !!}
+        {!! Form::hidden('commentable_type', $module) !!}
+        {!! Form::hidden('published_by', null) !!}
+        {!! Form::hidden('commentable_id', $data->id) !!}
 
-    <div class="form-group">
-        {!! Form::label('content', 'Comment') !!}
-        {!! Form::textarea('content', null, ['class' => 'form-control', 'rows' => '5']) !!}
+        <div class="form-group">
+            {!! Form::label('content', 'Comment') !!}
+            {!! Form::textarea('content', null, ['class' => 'form-control', 'rows' => '5']) !!}
+        </div>
+
+        {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
+
+        {!! Form::close() !!}
+
     </div>
-
-    {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
-
-    {!! Form::close() !!}
-
-</div>
+@else
+    <h5 style="text-align: center; margin-top: 25px">Please <a href="{{url('auth/login')}}">Log in</a> to comment</h5>
+@endif

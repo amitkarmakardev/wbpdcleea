@@ -10,7 +10,6 @@ class Vote extends Model
 
     public function setCastByAttribute($value)
     {
-//        TODO: Change cast_by to currently logged in user
-        $this->attributes['cast_by'] = 'admin';
+        $this->attributes['cast_by'] = auth()->user()->member_id;
     }
 }

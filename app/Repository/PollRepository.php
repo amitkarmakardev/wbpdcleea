@@ -48,8 +48,7 @@ class PollRepository{
 
     public function vote($id, $poll_option_id)
     {
-//        TODO: set appropriate cast_by
-        Vote::create(['poll_id' => $id, 'cast_by' => '', 'poll_option_id' => $poll_option_id]);
+        Vote::create(['poll_id' => $id, 'cast_by' => auth()->user()->member_id, 'poll_option_id' => $poll_option_id]);
     }
 
 }

@@ -5,15 +5,21 @@ namespace App\Http\Controllers;
 use App\Repository\MemberRepository;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-
 class MemberController extends Controller
 {
 
-    public function index($module, MemberRepository $repository)
+    protected $repository;
+
+    public function __construct(MemberRepository $repository)
     {
-        $data_list = $repository->all();
-        return view($module.'.index', compact('module', 'data_list'));
+        $this->middleware('auth');
+        $this->repository = $repository;
+    }
+
+    public function index()
+    {
+        $data_list = $this->repository->all();
+        return view('member.index', compact('module', 'data_list'));
     }
 
     public function create()
@@ -21,21 +27,21 @@ class MemberController extends Controller
         return view('member.create');
     }
 
-    public function show($id, MemberRepository $repository)
+    public function show($id)
     {
-        $data = $repository->get($id);
+        $data = $this->repository->get($id);
         return view('member.show', compact('data'));
     }
 
-    public function store(Request $request, MemberRepository $repository)
+    public function store(Request $request)
     {
-        $repository->save($request);
+        $this->repository->save($request);
         return redirect()->to(url('member'));
     }
 
-    public function update(Request $request, $id, MemberRepository $repository)
+    public function update(Request $request, $id)
     {
-        $repository->update($id, $request);
+        $this->repository->update($id, $request);
         return redirect()->to(url('member', $id));
     }
 }

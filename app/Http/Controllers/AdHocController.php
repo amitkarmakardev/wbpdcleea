@@ -8,11 +8,18 @@ use Illuminate\Http\Request;
 class AdHocController extends Controller
 {
 
-    public function comment(Request $request, CommentRepository $commentRepository)
+    protected $repository;
+
+    public function __construct(CommentRepository $repository)
     {
-        $commentRepository->comment($request);
-        return redirect()->back();
+        $this->middleware('auth')->only('comment');
+        $this->repository = $repository;
     }
 
+    public function comment(Request $request)
+    {
+        $this->repository->comment($request);
+        return redirect()->back();
+    }
 
 }

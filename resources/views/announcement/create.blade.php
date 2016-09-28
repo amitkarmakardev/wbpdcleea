@@ -6,7 +6,7 @@
         <div class="main-content">
             <hr>
             {!! Form::open(['url' => url('announcement')]) !!}
-
+            
             @if($errors->has('subject'))
                 @foreach($errors->get('subject') as $error)
                     <span class="validation-error-text"> * {{ $error }} </span>&nbsp;&nbsp;

@@ -11,7 +11,6 @@
 |
 */
 
-// Authentication routes...
 
 Route::group(['prefix' => '/'], function () {
 
@@ -27,6 +26,7 @@ Route::group(['prefix' => '/'], function () {
 
 });
 
+// Authentication routes...
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', 'Auth\LoginController@showLoginForm');
     Route::post('login', 'Auth\LoginController@login');
@@ -45,7 +45,7 @@ Route::group(['prefix' => 'poll'], function () {
     Route::post('/', 'PollController@store');
 });
 
-Route::group(['prefix' => '{module?}', 'where' => ['module' => '(announcement|discussion|poll|member)']], function () {
+Route::group(['prefix' => '{module?}', 'where' => ['module' => '(announcement|discussion)']], function () {
     Route::get('/', 'BasicController@index');
     Route::get('create', 'BasicController@create');
     Route::get('{id?}', 'BasicController@show');

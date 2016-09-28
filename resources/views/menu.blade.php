@@ -22,7 +22,7 @@
                 <li><a href="{{ url('poll') }}">Poll</a></li>
                 <li><a href="{{ url('member') }}">Member</a></li>
                 @if(auth()->check() == false)
-                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                    <li><a href="{{ url('auth/login') }}">Login</a></li>
                 @else
                     <li><a href="{{ url('auth/logout') }}">Logout</a></li>
                 @endif

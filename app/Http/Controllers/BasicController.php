@@ -10,6 +10,7 @@ class BasicController extends Controller
 
     public function __construct()
     {
+        $this->middleware('auth')->only(['create', 'store']);
         $module = Route::current()->getParameter('module');
         $this->repository = app(config('wbpdcleea.'.$module.'.repository'));
     }
