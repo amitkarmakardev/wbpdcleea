@@ -25,6 +25,21 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('publish', function($user, $module){
+            return in_array('publish', config('wbpdcleea.permission.'.$user->role.'.'.$module));
+        });
+
+        Gate::define('view', function($user, $module){
+            return in_array('view', config('wbpdcleea.permission.'.$user->role.'.'.$module));
+        });
+
+        Gate::define('moderate', function($user, $module){
+            return in_array('moderate', config('wbpdcleea.permission.'.$user->role.'.'.$module));
+        });
+
+        Gate::define('comment', function($user, $module){
+            return in_array('comment', config('wbpdcleea.permission.'.$user->role.'.'.$module));
+        });
+
     }
 }
