@@ -7,23 +7,22 @@
             <hr>
             {!! Form::open(['url' => url('discussion')]) !!}
 
-            @if($errors->has('subject'))
-                @foreach($errors->get('subject') as $error)
-                    <span class="validation-error-text"> * {{ $error }} </span>&nbsp;&nbsp;
-                @endforeach
-            @endif
             <div class="form-group">
-                {!! Form::label('subject', 'Subject') !!}
+                {!! Form::label('subject', '*Subject') !!}
+                @if($errors->has('subject'))
+                    @foreach($errors->get('subject') as $error)
+                        <span class="validation-error-text"> - {{ $error }} </span>
+                    @endforeach
+                @endif
                 {!! Form::text('subject', null, ['class' => 'form-control']) !!}
             </div>
-
-            @if($errors->has('description'))
-                @foreach($errors->get('description') as $error)
-                    <span class="validation-error-text"> * {{ $error }} </span>&nbsp;&nbsp;
-                @endforeach
-            @endif
             <div class="form-group">
-                {!! Form::label('description', 'Description') !!}
+                {!! Form::label('description', '*Description') !!}
+                @if($errors->has('description'))
+                    @foreach($errors->get('description') as $error)
+                        <span class="validation-error-text"> - {{ $error }} </span>
+                    @endforeach
+                @endif
                 {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
             </div>
 

@@ -16,7 +16,7 @@
                 @yield('left')
             </div>
             <div class="col-md-3">
-                Create Announement
+                {{--<a href="{{ url('announcement', ['create']) }}">Create Announcement</a>--}}
                 @include('right')
             </div>
         </div>

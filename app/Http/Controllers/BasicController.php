@@ -34,6 +34,7 @@ class BasicController extends Controller
 
     public function store(Request $request, $module)
     {
+        $this->validate($request, config('wbpdcleea.'.$module.'.validation_rules'));
         $this->repository->save($request);
         return redirect()->to(url($module));
     }
