@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Repository;
-use App\Member;
 
-class MemberRepository{
+use App\Member;
+use App\User;
+
+class MemberRepository
+{
 
     public function all()
     {
@@ -12,7 +15,8 @@ class MemberRepository{
 
     public function save($request)
     {
-        Member::create($request->all());
+        Member::create($request->only('member_id', 'member_since', 'name', 'address', 'attached_to', 'contact_no', 'designation'));
+        User::create(array_add($request->only('member_id', 'email'), 'password', bcrypt('password')));
     }
 
     public function get($id)

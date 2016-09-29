@@ -35,6 +35,7 @@ class MemberController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, config('wbpdcleea.member.validation_rules'));
         $this->repository->save($request);
         return redirect()->to(url('member'));
     }
