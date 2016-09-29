@@ -18,12 +18,21 @@ class Comment extends Model
     public function setPublishedByAttribute($value)
     {
         $this->attributes['published_by'] = auth()->user()->member_id;
-
     }
 
     public function setCommentableTypeAttribute($value)
     {
         $this->attributes['commentable_type'] = 'App\\' . ucwords($value);
+    }
+
+    public function publishedBy()
+    {
+        return $this->hasOne('App\Member', 'member_id', 'published_by');
+    }
+
+    public function isProper()
+    {
+        return $this->is_proper == 'yes';
     }
 
 }
