@@ -98,6 +98,9 @@
             font-size: 12px;
         }
     </style>
+    <div class="container" style="text-align: center; margin-top: 10px">
+        <img src="{{ asset('images/wbpdcleea_logo.png') }}" alt="Logo" height="200">
+    </div>
     <div class="loginmodal-container">
         <h1>Login to Your Account</h1><br>
         {!! Form::open(['method' => 'post', 'url' => url('auth/login')]) !!}
