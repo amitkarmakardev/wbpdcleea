@@ -7,13 +7,11 @@ return [
         'announcement' => [
             'create',
             'view',
-            'comment',
         ],
 
         'discussion' => [
             'create',
             'view',
-            'comment',
         ],
 
         'poll' => [
@@ -23,11 +21,13 @@ return [
         ],
 
         'member' => [
+            'view',
             'create',
             'update',
         ],
 
         'comment' => [
+            'create',
             'view',
             'moderate'
         ],
@@ -50,6 +50,11 @@ return [
             'vote',
         ],
 
+        'member' => [
+            'view',
+        ],
+
+
         'comment' => [
             'view',
             'moderate'
@@ -60,12 +65,12 @@ return [
 
         'announcement' => [
             'view',
-            'comment',
+            'create',
         ],
 
         'discussion' => [
             'view',
-            'comment',
+            'create',
         ],
 
         'poll' => [
@@ -73,9 +78,15 @@ return [
             'vote',
         ],
 
-        'comment' => [
+        'member' => [
             'view',
         ],
+
+        'comment' => [
+            'view',
+            'create',
+        ],
+
     ],
 
 ];

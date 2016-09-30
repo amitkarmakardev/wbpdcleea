@@ -12,6 +12,7 @@ class BasicController extends Controller
     {
         $this->middleware('auth')->only(['create', 'store']);
         $module = Route::current()->getParameter('module');
+        $this->middleware('check-authority:create,'.$module)->only(['create', 'store']);
         $this->repository = app(config('wbpdcleea.'.$module.'.repository'));
     }
 

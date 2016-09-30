@@ -12,6 +12,8 @@ class CommentController extends Controller
     public function __construct(CommentRepository $repository)
     {
         $this->middleware('auth')->only('comment');
+        $this->middleware('check-authority:create,comment')->only('comment');
+        $this->middleware('check-authority:moderate,comment')->only(['markProper', 'markImproper']);
         $this->repository = $repository;
     }
 

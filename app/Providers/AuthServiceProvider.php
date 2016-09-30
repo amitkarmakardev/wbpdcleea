@@ -36,10 +36,5 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('moderate', function($user, $module){
             return in_array('moderate', config('wbpdcleea.permission.'.$user->role.'.'.$module));
         });
-
-        Gate::define('comment', function($user, $module){
-            return in_array('comment', config('wbpdcleea.permission.'.$user->role.'.'.$module));
-        });
-
     }
 }

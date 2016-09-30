@@ -26,6 +26,13 @@ Route::group(['prefix' => '/'], function () {
 
 });
 
+Route::group(['prefix' => 'error'], function(){
+
+    Route::get('403', function(){
+       return view('error.403');
+    });
+});
+
 // Authentication routes...
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', 'Auth\LoginController@showLoginForm');
