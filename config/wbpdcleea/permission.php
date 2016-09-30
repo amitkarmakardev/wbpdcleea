@@ -5,87 +5,41 @@ return [
     'admin' => [
 
         'announcement' => [
-            'create',
             'view',
+            'create',
         ],
 
         'discussion' => [
-            'create',
             'view',
+            'create',
         ],
 
         'poll' => [
-            'create',
             'view',
+            'create',
             'vote',
         ],
 
         'member' => [
-            'view',
             'create',
-            'update',
+            'view',
         ],
 
         'comment' => [
-            'create',
             'view',
+            'create',
             'moderate'
         ],
     ],
 
     'moderator' =>[
 
-        'announcement' => [
-            'view',
-            'comment',
-        ],
 
-        'discussion' => [
-            'view',
-            'comment',
-        ],
-
-        'poll' => [
-            'view',
-            'vote',
-        ],
-
-        'member' => [
-            'view',
-        ],
-
-
-        'comment' => [
-            'view',
-            'moderate'
-        ],
     ],
 
     'member' => [
 
-        'announcement' => [
-            'view',
-            'create',
-        ],
 
-        'discussion' => [
-            'view',
-            'create',
-        ],
-
-        'poll' => [
-            'view',
-            'vote',
-        ],
-
-        'member' => [
-            'view',
-        ],
-
-        'comment' => [
-            'view',
-            'create',
-        ],
 
     ],
 

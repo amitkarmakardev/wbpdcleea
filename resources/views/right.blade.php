@@ -2,22 +2,28 @@
 
 <div class="sidebar" style="padding: 0">
 
-    <div class="sidebar-item poll-box">
-        <h4>Control Panel</h4>
-        <hr>
-        @can('create', 'announcement')
-        <a href="{{ url('announcement', 'create') }}">Create announcement</a>
-        @endcan
-        @can('create', 'discussion')
-        <a href="{{ url('discussion', 'create') }}">Create discussion</a>
-        @endcan
-        @can('create', 'member')
-        <a href="{{ url('member', 'create') }}">Create member</a>
-        @endcan
-        @can('create', 'poll')
-        <a href="{{ url('poll', 'create') }}">Create poll</a>
-        @endcan
-    </div>
+    {{--Only logged in user can view control panel--}}
+    @if(auth()->check())
+        <div class="sidebar-item poll-box">
+            <h4>Control Panel</h4>
+            <hr>
+            @can('view', 'member')
+                <a href="{{ url('member', [auth()->user()->member->id]) }}">My profile</a>
+            @endcan
+            @can('create', 'announcement')
+            <a href="{{ url('announcement', 'create') }}">Create announcement</a>
+            @endcan
+            @can('create', 'discussion')
+            <a href="{{ url('discussion', 'create') }}">Create discussion</a>
+            @endcan
+            @can('create', 'member')
+            <a href="{{ url('member', 'create') }}">Create member</a>
+            @endcan
+            @can('create', 'poll')
+            <a href="{{ url('poll', 'create') }}">Create poll</a>
+            @endcan
+        </div>
+    @endif
 
     <div class="sidebar-item poll-box">
         <h4>Poll</h4>

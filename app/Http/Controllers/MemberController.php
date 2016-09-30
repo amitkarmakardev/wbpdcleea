@@ -13,8 +13,8 @@ class MemberController extends Controller
     public function __construct(MemberRepository $repository)
     {
         $this->middleware('auth');
-        $this->middleware('check-authority:create,member')->only(['create', 'store', 'update']);
         $this->middleware('check-authority:view,member')->only(['index', 'show']);
+        $this->middleware('check-authority:create,member')->only(['create', 'store', 'edit', 'update']);
         $this->repository = $repository;
     }
 
@@ -27,6 +27,12 @@ class MemberController extends Controller
     public function create()
     {
         return view('member.create');
+    }
+
+    public function edit($id)
+    {
+        $data = $this->repository->get($id);
+        return view('member.edit', compact('data'));
     }
 
     public function show($id)

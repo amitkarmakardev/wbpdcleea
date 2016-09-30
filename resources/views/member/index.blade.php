@@ -19,7 +19,7 @@
                 @foreach($data_list as $member)
                     <tr>
                         <td>{{ $member->member_id }}</td>
-                        <td>{{ $member->name }}</td>
+                        <td><a href="{{ url('member', $member->id) }}">{{ $member->name }}</a></td>
                         <td>{{ $member->member_since }}</td>
                         <td>{{ $member->attached_to }}</td>
                     </tr>
