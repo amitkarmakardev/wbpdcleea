@@ -19,6 +19,6 @@
         </div>
     </div>
 
-    @include('comment.comment')
+    @include('comment.layout')
 
 @stop

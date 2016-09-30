@@ -14,11 +14,13 @@
             </div>
             <hr>
             <h6 style="text-align: right; color: #555">Published by: {{ $data->publihed_by }}</h6>
-
-
         </div>
     </div>
 
-    @include('comment.comment')
+    @if(auth()->user()->can('moderate', 'comment'))
+        @include('comment.moderate-comment')
+    @else
+        @include('comment.comment')
+    @endif
 
 @stop

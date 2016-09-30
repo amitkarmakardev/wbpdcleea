@@ -18,4 +18,9 @@ class Announcement extends Model
         return $this->morphMany('App\Comment', 'commentable');
     }
 
+    public function properComments()
+    {
+        return $this->comments()->where('is_proper', 'proper')->get();
+    }
+
 }

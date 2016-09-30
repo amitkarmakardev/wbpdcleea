@@ -33,7 +33,14 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('logout', 'Auth\LoginController@logout');
 });
 
-Route::post('comment', 'AdHocController@comment');
+Route::group(['prefix' => 'comment'], function(){
+
+    Route::get('{id?}/mark-proper', 'CommentController@markProper');
+    Route::get('{id?}/mark-improper', 'CommentController@markImproper');
+
+    Route::post('/', 'CommentController@comment');
+});
+
 
 Route::group(['prefix' => 'poll'], function () {
     Route::get('/', 'PollController@index');

@@ -32,7 +32,7 @@ class Comment extends Model
 
     public function isProper()
     {
-        return $this->is_proper == 'yes';
+        return $this->is_proper == 'proper';
     }
 
 }

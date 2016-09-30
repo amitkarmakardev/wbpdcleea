@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use App\Repository\CommentRepository;
 use Illuminate\Http\Request;
 
-class AdHocController extends Controller
+class CommentController extends Controller
 {
-
     protected $repository;
 
     public function __construct(CommentRepository $repository)
@@ -22,4 +21,15 @@ class AdHocController extends Controller
         return redirect()->back();
     }
 
+    public function markProper($id)
+    {
+        $this->repository->markProper($id);
+        return redirect()->back();
+    }
+
+    public function markImproper($id)
+    {
+        $this->repository->markImproper($id);
+        return redirect()->back();
+    }
 }

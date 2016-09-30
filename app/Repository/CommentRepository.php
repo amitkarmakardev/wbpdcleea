@@ -4,7 +4,8 @@ namespace App\Repository;
 
 use App\Comment;
 
-class CommentRepository{
+class CommentRepository
+{
 
     public function all()
     {
@@ -18,6 +19,26 @@ class CommentRepository{
 
     public function get($id)
     {
-        dd('Wrong method !!');
+        return Comment::find($id);
+    }
+
+    public function markProper($id)
+    {
+        $comment = $this->get($id);
+        if ($comment->is_proper == 'improper') {
+            $comment->is_proper = 'proper';
+            $comment->marked_by = auth()->user()->member_id;
+            $comment->save();
+        }
+    }
+
+    public function markImproper($id)
+    {
+        $comment = $this->get($id);
+        if ($comment->is_proper == 'proper') {
+            $comment->is_proper = 'improper';
+            $comment->marked_by = auth()->user()->member_id;
+            $comment->save();
+        }
     }
 }
