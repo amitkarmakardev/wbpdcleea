@@ -6,4 +6,8 @@ return [
 
     'per_page' => 12,
 
+    'validation_rules' => [
+        'agenda' => 'required',
+    ],
+
 ];

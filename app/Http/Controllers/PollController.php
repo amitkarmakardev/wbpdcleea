@@ -34,6 +34,7 @@ class PollController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, config('wbpdcleea.poll.validation_rules'));
         $this->repository->save($request);
         return redirect()->to(url('poll'));
     }
