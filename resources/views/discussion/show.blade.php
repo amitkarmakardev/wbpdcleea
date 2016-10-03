@@ -15,12 +15,7 @@
             <hr>
             <h6 style="text-align: right; color: #555">Published by: {{ $data->publihed_by }}</h6>
         </div>
+
     </div>
-
-    @if(auth()->user()->can('moderate', 'comment'))
-        @include('comment.moderate-comment')
-    @else
-        @include('comment.comment')
-    @endif
-
+    @include('comment.layout')
 @stop
