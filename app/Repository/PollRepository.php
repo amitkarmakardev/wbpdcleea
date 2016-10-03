@@ -48,7 +48,10 @@ class PollRepository{
 
     public function vote($id, $poll_option_id)
     {
-        Vote::create(['poll_id' => $id, 'cast_by' => auth()->user()->member_id, 'poll_option_id' => $poll_option_id]);
+        // Allow only if user has not already voted
+        if(Vote::where('poll_id', $id)->where('cast_by', auth()->user()->member_id)->first() == null){
+            Vote::create(['poll_id' => $id, 'cast_by' => auth()->user()->member_id, 'poll_option_id' => $poll_option_id]);
+        }
     }
 
 }

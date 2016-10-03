@@ -12,4 +12,5 @@ class Vote extends Model
     {
         $this->attributes['cast_by'] = auth()->user()->member_id;
     }
+
 }
