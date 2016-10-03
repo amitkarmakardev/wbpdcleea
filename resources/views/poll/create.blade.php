@@ -8,34 +8,24 @@
 
             {!! Form::open(['method' => 'post', 'url' => url('poll')]) !!}
 
-            @if($errors->has('agenda'))
-                @foreach($errors->get('agenda') as $error)
-                    <span class="validation-error-text"> * {{ $error }} </span>&nbsp;&nbsp;
-                @endforeach
-            @endif
             <div class="form-group">
                 {!! Form::label('agenda', 'Agenda') !!}
+                @if($errors->has('agenda'))
+                    @foreach($errors->get('agenda') as $error)
+                        <span class="validation-error-text"> - {{ $error }} </span>
+                    @endforeach
+                @endif
                 {!! Form::text('agenda', null, ['class' => 'form-control']) !!}
             </div>
+            <div class="form-group">
+                {!! Form::label('option', 'Option') !!}
+                {!! Form::text('option[0]', null, ['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('option', 'Option') !!}
+                {!! Form::text('option[1]', null, ['class' => 'form-control']) !!}
+            </div>
 
-            @if($errors->has('option'))
-                @foreach($errors->get('option') as $error)
-                    <span class="validation-error-text"> * {{ $error }} </span>&nbsp;&nbsp;
-                @endforeach
-            @endif
-            <div class="form-group">
-                {!! Form::label('option', 'Option') !!}
-                {!! Form::text('option[]', null, ['class' => 'form-control']) !!}
-            </div>
-            @if($errors->has('option'))
-                @foreach($errors->get('option') as $error)
-                    <span class="validation-error-text"> * {{ $error }} </span>&nbsp;&nbsp;
-                @endforeach
-            @endif
-            <div class="form-group">
-                {!! Form::label('option', 'Option') !!}
-                {!! Form::text('option[]', null, ['class' => 'form-control']) !!}
-            </div>
 
             <div id="extra-poll-options">
 

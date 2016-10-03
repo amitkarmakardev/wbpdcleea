@@ -19,9 +19,10 @@
                         <a href="{{url('poll', $poll->id)}}"
                            style="font-size: 1.2em; color: #555; display: block; margin-bottom: 5px">{{ $poll->agenda }}</a>
                         <span style="font-size: .8em">
-                            Published <span
-                                    style="color: #2ca02c">{{ $poll->created_at->diffForHumans() }}</span> by
-                            <span style="color: #2a88bd">{{ $poll->published_by }}</span>
+                            Published
+                            <span style="color: #2ca02c">{{ $poll->created_at->diffForHumans() }}</span> by
+                            <a href="{{ url('member', $poll->publishedBy->id) }}"
+                               style="color: #2a88bd">{{ $poll->publishedBy->name }}</a>
                         </span>
                     </div>
                     <div class="col-md-1" style="text-align: right">

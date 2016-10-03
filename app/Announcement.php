@@ -20,7 +20,11 @@ class Announcement extends Model
 
     public function properComments()
     {
-        return $this->comments()->where('is_proper', 'proper')->get();
+        return $this->comments()->where('is_proper', 'proper')->latest()->get();
     }
 
+    public function publishedBy()
+    {
+        return $this->hasOne('App\Member', 'member_id', 'published_by');
+    }
 }

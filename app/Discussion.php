@@ -24,4 +24,9 @@ class Discussion extends Model
         return $this->comments()->where('is_proper', 'proper')->get();
     }
 
+    public function publishedBy()
+    {
+        return $this->hasOne('App\Member', 'member_id', 'published_by');
+    }
+
 }

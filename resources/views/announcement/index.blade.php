@@ -19,9 +19,10 @@
                         <a href="{{url('announcement', $announcement->id)}}"
                            style="font-size: 1.2em; color: #555; display: block; margin-bottom: 5px">{{ $announcement->subject }}</a>
                         <span style="font-size: .8em">
-                            Published <span
-                                    style="color: #2ca02c">{{ $announcement->updated_at->diffForHumans() }}</span> by
-                            <span style="color: #2a88bd">{{ $announcement->published_by }}</span>
+                            Published
+                            <span style="color: #2ca02c">{{ $announcement->updated_at->diffForHumans() }}</span> by
+                            <a href="{{ url('member', $announcement->publishedBy->id) }}"
+                               style="color: #2a88bd">{{ $announcement->publishedBy->name }}</a>
                         </span>
                     </div>
                     <div class="col-md-1" style="text-align: right">

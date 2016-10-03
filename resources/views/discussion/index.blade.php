@@ -21,7 +21,10 @@
                         <span style="font-size: .8em">
                             Published <span
                                     style="color: #2ca02c">{{ $discussion->updated_at->diffForHumans() }}</span> by
-                            <span style="color: #2a88bd">{{ $discussion->published_by }}</span>
+                            <span style="color: #2a88bd"><a
+                                        href="{{ url('member', $discussion->publishedBy->id) }}">
+                                    {{ $discussion->publishedBy->name }}
+                                </a></span>
                         </span>
                     </div>
                     <div class="col-md-1" style="text-align: right">

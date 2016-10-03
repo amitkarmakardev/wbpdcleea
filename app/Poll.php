@@ -33,4 +33,9 @@ class Poll extends Model
         }
         return intval($percentage);
     }
+
+    public function publishedBy()
+    {
+        return $this->hasOne('App\Member', 'member_id', 'published_by');
+    }
 }
