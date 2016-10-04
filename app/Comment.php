@@ -2,11 +2,13 @@
 
 namespace App;
 
+use App\AppTraits\Publishable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
 
 class Comment extends Model
 {
+    use Publishable;
 
     protected $fillable = ['content', 'commentable_type', 'commentable_id', 'published_by'];
     
@@ -14,21 +16,12 @@ class Comment extends Model
     {
         return $this->morphTo();
     }
-    
-    public function setPublishedByAttribute($value)
-    {
-        $this->attributes['published_by'] = auth()->user()->member_id;
-    }
 
     public function setCommentableTypeAttribute($value)
     {
         $this->attributes['commentable_type'] = 'App\\' . ucwords($value);
     }
 
-    public function publishedBy()
-    {
-        return $this->hasOne('App\Member', 'member_id', 'published_by');
-    }
 
     public function isProper()
     {

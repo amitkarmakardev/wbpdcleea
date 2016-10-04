@@ -2,16 +2,15 @@
 
 namespace App;
 
+use App\AppTraits\Publishable;
 use Illuminate\Database\Eloquent\Model;
 
 class Poll extends Model
 {
-    protected $fillable = ['agenda', 'published_by'];
 
-    public function setPublishedByAttribute($value)
-    {
-        $this->attributes['published_by'] = auth()->user()->member_id;
-    }
+    use Publishable;
+
+    protected $fillable = ['agenda', 'published_by'];
 
     public function pollOptions()
     {
@@ -32,10 +31,5 @@ class Poll extends Model
             $percentage = $op_vote / $total_votes * 100;
         }
         return intval($percentage);
-    }
-
-    public function publishedBy()
-    {
-        return $this->hasOne('App\Member', 'member_id', 'published_by');
     }
 }
