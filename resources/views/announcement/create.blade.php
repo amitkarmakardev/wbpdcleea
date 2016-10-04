@@ -1,5 +1,9 @@
 @extends('announcement.layout')
 
+@section('sub-navigation')
+    > <a href="{{ url('announcement', 'create') }}">Create</a>
+@stop
+
 @section('left')
     <div class="main-container">
         <h2 class="heading">Create Announcement</h2>
