@@ -16,7 +16,7 @@ class MemberRepository
     public function save($request)
     {
         Member::create($request->only('member_id', 'member_since', 'name', 'address', 'attached_to', 'contact_no', 'designation'));
-        User::create(array_add($request->only('member_id', 'email'), 'password', bcrypt('password')));
+        User::create(array_add($request->only('member_id', 'email', 'role'), 'password', bcrypt('password')));
     }
 
     public function get($id)
@@ -27,7 +27,8 @@ class MemberRepository
     public function update($id, $request)
     {
         $data = $this->get($id);
-        $data->update($request->all());
+        $data->update($request->only('member_since', 'name', 'address', 'attached_to', 'contact_no', 'designation'));
+        $data->user->update($request->only('email', 'role'));
     }
 
 }

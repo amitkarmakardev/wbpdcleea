@@ -14,7 +14,7 @@ class AddDesignationToMembers extends Migration
     public function up()
     {
         Schema::table('members', function (Blueprint $table) {
-            $table->string('designation')->default('general_member');
+            $table->string('designation')->default('General Member');
         });
     }
 

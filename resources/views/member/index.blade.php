@@ -8,7 +8,6 @@
     <div class="main-container">
         <h2 class="heading">Members</h2>
         <div class="main-content">
-            <hr>
             <table class="table table-striped" style="border-bottom: 1px solid #dedede">
                 <tr>
                     <th>Member ID</th>
