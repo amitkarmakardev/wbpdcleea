@@ -61,13 +61,13 @@
         @endforeach
     </div>
 
-    <div class="sidebar-item">
+    {{--<div class="sidebar-item">
         <h4>Most Popular</h4>
         <hr>
         @foreach($sidebarInjector->getPopularDiscussions() as $discussion)
             <a href="{{ url('discussion', [$discussion->id]) }}"
                style="display:block; padding: 3px; color: #666">{{ $discussion->subject }}</a>
         @endforeach
-    </div>
+    </div>--}}
 
 </div>

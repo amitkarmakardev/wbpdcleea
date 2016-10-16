@@ -6,7 +6,7 @@
 
 @section('left')
     <div class="main-container">
-        <h2 class="heading">Announcements</h2>
+        <h2 class="heading"><i class="fa fa-bullhorn"></i> &nbsp;Announcements</h2>
         <div class="main-content">
             <hr>
             @foreach($data_list as $announcement)
@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-md-9" style="padding-left: 30px">
                         <a href="{{url('announcement', $announcement->id)}}"
-                           style="font-size: 1.2em; color: #555; display: block; margin-bottom: 5px">{{ $announcement->subject }}</a>
+                           style="font-size: 1.2em; color: #555; display: block; margin-bottom: 5px;">{{ $announcement->subject }}</a>
                         <span style="font-size: .8em">
                             Published
                             <span style="color: #2ca02c">{{ $announcement->updated_at->diffForHumans() }}</span> by

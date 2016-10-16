@@ -16,7 +16,7 @@
                 <li><a class="active" href="{{ url('/') }}">Home</a></li>
                 <li><a href="{{ url('committee') }}">Exe. Committee</a></li>
                 <li><a href="{{ url('achievement') }}">Achievements</a></li>
-                <li><a href="{{ url('pending-issues') }}">Pending Issues</a></li>
+                <li><a href="{{ url('issue') }}">Pending Issues</a></li>
                 <li><a href="{{ url('announcement') }}">Announcements</a></li>
                 <li><a href="{{ url('discussion') }}">Discussions</a></li>
                 <li><a href="{{ url('poll') }}">Poll</a></li>

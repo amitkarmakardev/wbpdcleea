@@ -1,15 +1,3 @@
-@foreach($data->properComments() as $comment)
-<div class="comment-box">
-    <h5 style="margin-bottom: 20px; font-weight: 600">
-        {{ $comment->publishedBy->name }}
-        - <span style="color: #999">{{ $comment->created_at->diffForHumans() }}</span>
-    </h5>
-    <div class="comment">
-        {{ $comment->content }}
-    </div>
-</div>
-@endforeach
-
 @if(auth()->check())
 <div class="comment-box">
     {!! Form::open(['method' => 'post', 'url' => url('comment')]) !!}
@@ -31,3 +19,15 @@
 @else
 <h5 style="text-align: center; margin-top: 25px">Please <a href="{{url('auth/login')}}">Log in</a> to comment</h5>
 @endif
+
+@foreach($data->properComments() as $comment)
+    <div class="comment-box">
+        <h5 style="margin-bottom: 20px; font-weight: 600">
+            {{ $comment->publishedBy->name }}
+            - <span style="color: #999">{{ $comment->created_at->diffForHumans() }}</span>
+        </h5>
+        <div class="comment">
+            {{ $comment->content }}
+        </div>
+    </div>
+@endforeach

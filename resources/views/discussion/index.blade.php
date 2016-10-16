@@ -6,7 +6,7 @@
 
 @section('left')
     <div class="main-container">
-        <h2 class="heading">Discussions</h2>
+        <h2 class="heading"><i class="fa fa-comments"></i> &nbsp;Discussions</h2>
         <div class="main-content">
             <hr>
             @foreach($data_list as $discussion)
@@ -17,7 +17,8 @@
                     </div>
                     <div class="col-md-9" style="padding-left: 30px">
                         <a href="{{url('discussion', $discussion->id)}}"
-                           style="font-size: 1.2em; color: #555; display: block; margin-bottom: 5px">{{ $discussion->subject }}</a>
+                           style="font-size: 1.2em; color: #555; display: block; margin-bottom: 5px">
+                            {{ $discussion->subject }}</a>
                         <span style="font-size: .8em">
                             Published <span
                                     style="color: #2ca02c">{{ $discussion->updated_at->diffForHumans() }}</span> by

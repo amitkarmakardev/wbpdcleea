@@ -59,7 +59,7 @@ Route::group(['prefix' => 'poll'], function () {
     Route::post('/', 'PollController@store');
 });
 
-Route::group(['prefix' => '{module?}', 'where' => ['module' => '(announcement|discussion)']], function () {
+Route::group(['prefix' => '{module?}', 'where' => ['module' => '(announcement|discussion|issue)']], function () {
     Route::get('/', 'BasicController@index');
     Route::get('create', 'BasicController@create');
     Route::get('{id?}', 'BasicController@show');

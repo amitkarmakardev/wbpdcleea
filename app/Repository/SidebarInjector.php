@@ -21,10 +21,4 @@ class SidebarInjector{
     {
         return Poll::where('status', 'active')->orderBy('created_at', 'desc')->get();
     }
-
-    public function getVotePercentage($poll_id, $poll_option_id)
-    {
-
-    }
-
 }

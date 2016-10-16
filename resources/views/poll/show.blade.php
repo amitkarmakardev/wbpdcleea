@@ -18,6 +18,7 @@
             </ul>
 
             <hr>
+            @can('create', 'poll')
             <div style="text-align: right">
                 @if($data->status == 'inactive')
                     <a href="{{ url('poll', [$data->id, 'activate']) }}" class="btn btn-primary" id="confirm">Activate
@@ -27,6 +28,7 @@
                         Poll</a>
                 @endif
             </div>
+            @endcan
 
         </div>
     </div>

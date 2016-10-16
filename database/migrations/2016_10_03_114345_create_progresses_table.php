@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIssuesTable extends Migration
+class CreateProgressesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateIssuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('issues', function (Blueprint $table) {
+        Schema::create('progresses', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('subject');
+            $table->unsignedInteger('issue_id')->nullable();
             $table->text('description');
-            $table->string('published_by');
-            $table->enum('status', ['pending', 'resolved'])->default('pending');
-            $table->unsignedInteger('hit')->default(0);
+            $table->string('published_by')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateIssuesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('issues');
+        Schema::dropIfExists('progresses');
     }
 }

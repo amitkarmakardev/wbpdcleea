@@ -1,3 +1,20 @@
+<div class="comment-box">
+    {!! Form::open(['method' => 'post', 'url' => url('comment')]) !!}
+
+    {!! Form::hidden('commentable_type', $module) !!}
+    {!! Form::hidden('published_by', null) !!}
+    {!! Form::hidden('commentable_id', $data->id) !!}
+
+    <div class="form-group">
+        <span class="validation-error-text" style="display: block; text-align: right">Please do not make any offensive or provoking comment</span>
+        {!! Form::label('content', 'Comment') !!}
+        {!! Form::textarea('content', null, ['class' => 'form-control', 'rows' => '5']) !!}
+    </div>
+
+    {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
+
+    {!! Form::close() !!}
+</div>
 @foreach($data->comments as $comment)
     <div class="comment-box">
         <div class="row">
@@ -23,21 +40,3 @@
         </div>
     </div>
 @endforeach
-
-<div class="comment-box">
-    {!! Form::open(['method' => 'post', 'url' => url('comment')]) !!}
-
-    {!! Form::hidden('commentable_type', $module) !!}
-    {!! Form::hidden('published_by', null) !!}
-    {!! Form::hidden('commentable_id', $data->id) !!}
-
-    <div class="form-group">
-        <span class="validation-error-text" style="display: block; text-align: right">Please do not make any offensive or provoking comment</span>
-        {!! Form::label('content', 'Comment') !!}
-        {!! Form::textarea('content', null, ['class' => 'form-control', 'rows' => '5']) !!}
-    </div>
-
-    {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
-
-    {!! Form::close() !!}
-</div>
