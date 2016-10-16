@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Discussion;
+use App\Member;
 use App\Poll;
 
 class SidebarInjector{
@@ -20,5 +21,10 @@ class SidebarInjector{
     public function getActivePolls()
     {
         return Poll::where('status', 'active')->orderBy('created_at', 'desc')->get();
+    }
+
+    public function getCommitteeMember($designation)
+    {
+        return Member::where('designation', $designation)->get();
     }
 }
