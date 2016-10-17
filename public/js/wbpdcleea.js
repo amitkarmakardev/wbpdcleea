@@ -3,7 +3,7 @@ $(window).on('load', function () {
 });
 
 // save current scroll position to session storage -> maintain scroll position after refresh
-$(window).scroll(function() {
+$(window).scroll(function () {
     sessionStorage.scrollTop = $(this).scrollTop();
 });
 
@@ -36,5 +36,11 @@ $(document).ready(function () {
     if (sessionStorage.scrollTop != "undefined") {
         $(window).scrollTop(sessionStorage.scrollTop);
     }
+
+    tinymce.init({
+        selector: 'textarea',
+        menubar: '',
+        toolbar: 'bold italic | alignleft aligncenter alignright'
+    });
 
 });
