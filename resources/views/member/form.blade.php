@@ -1,3 +1,14 @@
+<div class="form-group row">
+    <div class="col-md-12">
+        {!! Form::label('role', 'User Role') !!}
+    </div>
+    <div class="col-md-4">
+        {!! Form::radio('role', 'member', ['checked' => 'true']) !!} Member
+    </div>
+    <div class="col-md-4">
+        {!! Form::radio('role', 'moderator') !!} Moderator
+    </div>
+</div>
 <div class="form-group">
     {!! Form::label('member_id', 'Member ID') !!}
     @if($errors->has('member_id'))
@@ -84,22 +95,6 @@
         @endforeach
     @endif
     {!! Form::text('contact_no', null, ['class' => 'form-control']) !!}
-</div>
-
-
-<div class="form-group row">
-    <div class="col-md-12">
-        {!! Form::label('role', 'User Role') !!}
-    </div>
-    <div class="col-md-4">
-        {!! Form::radio('role', 'member', ['checked' => 'true']) !!} Member
-    </div>
-    <div class="col-md-4">
-        {!! Form::radio('role', 'moderator') !!} Moderator
-    </div>
-    <div class="col-md-4">
-        {!! Form::radio('role', 'admin') !!} Admin
-    </div>
 </div>
 
 {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}

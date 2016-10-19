@@ -13,8 +13,8 @@ class MemberController extends Controller
     public function __construct(MemberRepository $repository)
     {
         $this->middleware('auth');
-        $this->middleware('check-authority:view,member')->only(['index', 'show']);
-        $this->middleware('check-authority:create,member')->only(['create', 'store', 'edit', 'update']);
+        $this->middleware('check-authority:view,member')->only(['index', 'show', 'changePassword']);
+        $this->middleware('check-authority:create,member')->only(['create', 'store', 'edit', 'update', 'resetPassword']);
         $this->repository = $repository;
     }
 
@@ -52,5 +52,30 @@ class MemberController extends Controller
     {
         $this->repository->update($id, $request);
         return redirect()->to(url('member', $id));
+    }
+
+    public function resetPassword($id)
+    {
+        $this->repository->resetPassword($id);
+        return redirect()->to(url('member', $id));
+    }
+
+    public function showChangePasswordForm()
+    {
+        $data = auth()->user()->member;
+        return view('member.password', compact('data'));
+    }
+
+    public function changePassword(Request $request)
+    {
+        $this->validate($request, config('wbpdcleea.user.change_password_validation_rules'));
+        $status = $this->repository->changePassword($request);
+        if ($status) {
+            $message = 'Password changed successfully';
+            auth()->logout();
+        } else {
+            $message = 'Invalid existing password';
+        }
+        return redirect()->back()->withErrors(compact('message'));
     }
 }

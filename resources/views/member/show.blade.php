@@ -27,7 +27,14 @@
             </div>
             <hr>
             @can('create', 'member')
-            <a href="{{ url('member', [$data->id, 'edit']) }}" class="btn btn-primary">Update Details</a>
+            <a href="{{ url('member', [$data->id, 'edit']) }}" class="btn btn-primary">Update Details</a>&nbsp;&nbsp;
+            <a id='confirm' href="{{ url('member', [$data->id, 'reset-password']) }}" class="btn btn-warning">Reset
+                Password</a>&nbsp;&nbsp;
+            @endcan
+            @can('view', 'member')
+            @if($data->id == auth()->user()->id)
+                <a href="{{ url('member', [$data->id, 'change-password']) }}" class="btn btn-danger">Change Password</a>
+            @endif
             @endcan
         </div>
     </div>
