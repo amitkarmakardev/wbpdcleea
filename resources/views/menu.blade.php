@@ -15,12 +15,16 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a class="active" href="{{ url('/') }}">Home</a></li>
                 <li><a href="{{ url('committee') }}">Exe. Committee</a></li>
-                <li><a href="{{ url('achievement') }}">Achievements</a></li>
+                {{--<li><a href="{{ url('achievement') }}">Achievements</a></li>--}}
                 <li><a href="{{ url('issue') }}">Pending Issues</a></li>
                 <li><a href="{{ url('announcement') }}">Announcements</a></li>
                 <li><a href="{{ url('discussion') }}">Discussions</a></li>
+                @can('create', 'poll')
                 <li><a href="{{ url('poll') }}">Poll</a></li>
+                @endcan
+                @can('view', 'member')
                 <li><a href="{{ url('member') }}">Member</a></li>
+                @endcan`
                 @if(auth()->check() == false)
                     <li><a href="{{ url('auth/login') }}">Login</a></li>
                 @else

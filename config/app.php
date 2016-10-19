@@ -181,6 +181,9 @@ return [
         // HTML Forms
         Collective\Html\HtmlServiceProvider::class,
 
+        // Flash Messages
+        Laracasts\Flash\FlashServiceProvider::class,
+
     ],
 
     /*

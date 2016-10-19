@@ -36,7 +36,7 @@
         </div>
 
         <div class="comment {{ $comment->is_proper }}">
-            {{ $comment->content }}
+            {!! $comment->content !!}
         </div>
     </div>
 @endforeach

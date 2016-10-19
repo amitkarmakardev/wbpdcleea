@@ -10,7 +10,7 @@
         <div class="main-content">
             <hr>
             <div style="min-height: 300px">
-                {{ $data->description }}
+                {!! $data->description !!}
             </div>
             <hr>
             <h6 style="text-align: right; color: #555">Published by: {{ $data->publihed_by }}</h6>

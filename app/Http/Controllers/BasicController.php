@@ -37,6 +37,7 @@ class BasicController extends Controller
     {
         $this->validate($request, config('wbpdcleea.'.$module.'.validation_rules'));
         $this->repository->save($request);
+        flash('Your '.$module.' has been created successfully');
         return redirect()->to(url($module));
     }
 

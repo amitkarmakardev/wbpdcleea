@@ -69,8 +69,11 @@ Route::group(['prefix' => '{module?}', 'where' => ['module' => '(announcement|di
 Route::group(['prefix' => 'member'], function () {
     Route::get('/', 'MemberController@index');
     Route::get('create', 'MemberController@create');
+    Route::get('{id?}/change-password', 'MemberController@showChangePasswordForm');
     Route::get('{id?}/edit', 'MemberController@edit');
     Route::get('{id?}', 'MemberController@show');
     Route::post('/', 'MemberController@store');
+    Route::post('/{id?}/reset-password', 'MemberController@resetPassword');
+    Route::post('change-password', 'MemberController@changePassword');
     Route::post('/{id?}', 'MemberController@update');
 });

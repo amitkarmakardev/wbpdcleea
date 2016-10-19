@@ -98,6 +98,9 @@
             font-size: 12px;
         }
     </style>
+
+    @include('flash')
+
     <div class="container" style="text-align: center; margin-top: 10px">
         <img src="{{ asset('images/wbpdcleea_logo.png') }}" alt="Logo" height="200">
     </div>

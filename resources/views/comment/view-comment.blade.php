@@ -7,13 +7,12 @@
     {!! Form::hidden('commentable_id', $data->id) !!}
 
     <div class="form-group">
-        <span class="validation-error-text" style="display: block; text-align: right">Please do not make any offensive or provoking comment</span>
         {!! Form::label('content', 'Comment') !!}
         {!! Form::textarea('content', null, ['class' => 'form-control', 'rows' => '5']) !!}
     </div>
 
     {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
-
+    <span style="text-align: right;display: inline-block; width: 100%; font-size: 0.9em; color: red">Please note: Offensive comments will be hidden</span>
     {!! Form::close() !!}
 </div>
 @else
@@ -27,7 +26,7 @@
             - <span style="color: #999">{{ $comment->created_at->diffForHumans() }}</span>
         </h5>
         <div class="comment">
-            {{ $comment->content }}
+            {!! $comment->content !!}
         </div>
     </div>
 @endforeach

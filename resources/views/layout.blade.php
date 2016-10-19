@@ -8,11 +8,14 @@
 </div>
 
 <body>
-        <!-- Header -->
+<!-- Header -->
 @include('header')
 
         <!-- Navigation -->
 @yield('navigation')
+
+        <!-- Flash Message -->
+@include('flash')
 
         <!-- Main Content -->
 @yield('content')

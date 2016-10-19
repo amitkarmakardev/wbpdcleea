@@ -139,3 +139,9 @@ h1, h2, h3, h4, h5, h6 {
 .improper{
     background-color: #ffb7b5;
 }
+
+.block-center{
+    display: block;
+    width: 100%;
+    text-align: center;
+}

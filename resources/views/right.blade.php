@@ -22,6 +22,9 @@
             @can('create', 'poll')
             <a href="{{ url('poll', 'create') }}">Create poll</a>
             @endcan
+            @can('create', 'issue')
+            <a href="{{ url('issue', 'create') }}">Create issue</a>
+            @endcan
         </div>
     @endif
 
