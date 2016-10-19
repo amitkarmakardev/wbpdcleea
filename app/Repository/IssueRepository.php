@@ -8,7 +8,7 @@ class IssueRepository{
 
     public function all()
     {
-        return Issue::paginate(config('wbpdcleea.issue.per_page'));
+        return Issue::where('status', 'pending')->paginate(config('wbpdcleea.issue.per_page'));
     }
 
     public function save($request)

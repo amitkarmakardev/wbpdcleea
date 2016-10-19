@@ -26,7 +26,7 @@
                         </span>
                     </div>
                     <div class="col-md-1" style="text-align: right">
-                        <span style="color: #989898; font-size: 1.5em">{{$issue->hit}}</span><br>
+                        <span style="color: #989898; font-size: 1.5em">{{$issue->status}}</span><br>
                     </div>
                     <div class="col-md-1"></div>
                 </div>

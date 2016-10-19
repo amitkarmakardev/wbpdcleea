@@ -26,7 +26,7 @@
                         <span class="validation-error-text"> - {{ $error }} </span>
                     @endforeach
                 @endif
-                {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+                {!! Form::textarea('description', null, ['class' => 'form-control tiny-editor']) !!}
             </div>
 
             {!! Form::hidden('published_by') !!}
