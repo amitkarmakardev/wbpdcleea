@@ -1,0 +1,147 @@
+@import 'https://fonts.googleapis.com/css?family=PT+Sans|Source+Sans+Pro|Merriweather|Montserrat|Cabin|Roboto|Lato';
+
+body {
+    padding-bottom: 50px;
+    background-color: #dbdfd4;
+    font-size: 16px;
+    color: #333;
+    font-family: Lato, Verdana, Cabin, "PT Sans", Montserrat, Verdana, serif;
+}
+
+p{
+    line-height: 1.6em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+    color: #cf6825;
+}
+
+#spinner {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    z-index: 9999;
+    background-color: transparent;
+    text-align: center;
+}
+
+.navigation-container {
+    margin-bottom: 5px;
+    background-color: transparent;
+}
+
+.navigation {
+    padding: 20px 20px;
+}
+
+.navigation a {
+    color: #282828;
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: small;
+}
+
+.main-container {
+    background-color: #ffffff;
+    padding: 35px 35px 65px 35px;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+}
+
+.main-container > .heading {
+    text-align: center;
+    margin: 35px;
+}
+
+.main-container > .main-content {
+    padding: 0 30px;
+}
+
+.validation-error-text {
+    margin-left: 10px;
+    font-family: Montserrat, serif;
+    font-size: 0.8em;
+    color: #ff2a45;
+    margin-top: 0;
+}
+
+.comment-box {
+    background-color: #ffffff;
+    padding: 25px 50px;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+    margin-top: 30px;
+}
+
+.comment-box > .comment {
+    padding: 5px 15px;
+    margin-left: 10px;
+    color: #666666;
+    border-left: 2px solid orange;
+    line-height: 1.8em;
+    word-wrap: break-word;
+}
+
+.sidebar {
+    padding: 15px;
+}
+
+.sidebar > .sidebar-item {
+    min-height: 200px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: .9em;
+    margin-bottom: 20px;
+}
+
+
+.poll-box > a{
+    display: block;
+    width: 100%;
+    color: #1b6d85;
+    padding: 5px 3px;
+}
+
+.poll-result{
+    border: 1px solid #1b6d85;
+    border-radius: 5px;
+    margin-bottom: 9px;
+    margin-top: 3px;
+}
+.poll-result > .poll-result-bar{
+    height: 10px;
+    display: block;
+    background-color: #1b6d85;
+}
+
+.nav a{
+    color: #ffffff;
+}
+
+.nav a:hover{
+    color: rgba(255, 112, 66, 1);
+    border-radius: 3px;
+}
+
+.navbar-brand{
+    color: #ffffff;
+}
+
+.navbar-brand:hover{
+    background-color: #ffffff;
+    border-radius: 3px;
+    color: #f16764;
+}
+
+.improper{
+    background-color: #ffb7b5;
+}
+
+.block-center{
+    display: block;
+    width: 100%;
+    text-align: center;
+}

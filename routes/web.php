@@ -5,12 +5,75 @@
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| This file is where you may define all of the routes that are handled
+| by your application. Just tell Laravel the URIs it should respond
+| to using a Closure or controller method. Build something great!
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['prefix' => '/'], function () {
+
+    Route::get('home', function () {
+        return view('home.home');
+    });
+    Route::get('committee', function () {
+        return view('home.committee');
+    });
+    Route::get('', function () {
+        return view('home.home');
+    });
+
+});
+
+Route::group(['prefix' => 'error'], function(){
+
+    Route::get('403', function(){
+       return view('error.403');
+    });
+});
+
+// Authentication routes...
+Route::group(['prefix' => 'auth'], function () {
+    Route::get('login', 'Auth\LoginController@showLoginForm');
+    Route::post('login', 'Auth\LoginController@login');
+    Route::get('logout', 'Auth\LoginController@logout');
+});
+
+Route::group(['prefix' => 'comment'], function(){
+
+    Route::get('{id?}/mark-proper', 'CommentController@markProper');
+    Route::get('{id?}/mark-improper', 'CommentController@markImproper');
+
+    Route::post('/', 'CommentController@comment');
+});
+
+
+Route::group(['prefix' => 'poll'], function () {
+    Route::get('/', 'PollController@index');
+    Route::get('create', 'PollController@create');
+    Route::get('{id?}/activate', 'PollController@activate');
+    Route::get('{id?}/deactivate', 'PollController@deactivate');
+    Route::get('vote/{id?}/{poll_option_id?}', 'PollController@vote');
+    Route::get('{id?}', 'PollController@show');
+    Route::post('/', 'PollController@store');
+});
+
+Route::group(['prefix' => '{module?}', 'where' => ['module' => '(announcement|discussion|issue)']], function () {
+    Route::get('/', 'BasicController@index');
+    Route::get('create', 'BasicController@create');
+    Route::get('{id?}', 'BasicController@show');
+    Route::post('/', 'BasicController@store');
+});
+
+Route::group(['prefix' => 'member'], function () {
+    Route::get('/', 'MemberController@index');
+    Route::get('create', 'MemberController@create');
+    Route::get('{id?}/change-password', 'MemberController@showChangePasswordForm');
+    Route::get('{id?}/edit', 'MemberController@edit');
+    Route::get('{id?}', 'MemberController@show');
+    Route::post('/', 'MemberController@store');
+    Route::post('/{id?}/reset-password', 'MemberController@resetPassword');
+    Route::post('change-password', 'MemberController@changePassword');
+    Route::post('/{id?}', 'MemberController@update');
 });
